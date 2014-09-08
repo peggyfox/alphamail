@@ -14,6 +14,8 @@ gem 'activerecord', '~>4.1'
 gem 'rake'
 
 gem 'shotgun'
+gem 'bcrypt'
+# gem 'chronic'
 
 group :test do
   gem 'shoulda-matchers'
@@ -24,5 +26,5 @@ end
 
 group :test, :development do
   gem 'factory_girl'
-  gem 'faker'
+  gem 'ffaker'
 end

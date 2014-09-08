@@ -1,0 +1,11 @@
+<div class="contacts_container">
+
+  <h2>Edit Contact</h2>
+
+  <form action="/contacts/<%= @contact.id %>" method="post">
+    <input type="hidden" name="_method" value="put">
+    <%= erb :"contacts/_form", layout: false %>
+    <input type="submit" value="Save">
+  </form>
+
+</div>
