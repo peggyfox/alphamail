@@ -1,0 +1,18 @@
+<div id="messages_container">
+  <table class="messages_table">
+      <tr id="message_header">
+        <th>From</th>
+        <th>Subject</th>
+        <th>Body</th>
+        <th>Sent</th>
+      </tr>
+    <% @messages.each do |message| %>
+      <tr class="<%= message.viewed? ? 'read' : 'unread'  %>" onclick="document.location='/messages/<%=message.id %>';">
+        <td><%= message.from_email[0..25] %></td>
+        <td><%= message.subject[0..40] %></td>
+        <td><%= message.body[0..80] %></td>
+        <td><%= message.sent_date_time %></td>
+      </tr>
+    <% end %>
+  </table>
+</div>

@@ -1,0 +1,29 @@
+<div id="contacts_container">
+
+  <h2>All Contacts</h2>
+
+  <p><a href="/contacts/new">Add a Contact</a></p>
+
+  <table class="contacts_table">
+      <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Edit</th>
+        <th>Delete</th>
+      </tr>
+    <% @contacts.each do |contact| %>
+      <tr onclick="document.location='/contacts/<%=contact.id %>';">
+        <td><%= contact.name %></td>
+        <td><%= contact.email %></td>
+        <td><button><a href="/contacts/<%=contact.id%>/edit">Edit</a></button></td>
+        <td>
+          <form action="/contacts/<%=contact.id%>" method="post">
+            <input type="hidden" name="_method" value="delete">
+            <input type="submit" value="Delete">
+          </form>
+        </td>
+      </tr>
+    <% end %>
+  </table>
+
+</div>
