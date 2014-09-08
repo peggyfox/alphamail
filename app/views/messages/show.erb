@@ -1,11 +1,15 @@
-<div class="message_show">
-  <h2><%= @message.subject %></h2>
+<div id="messages_container">
 
-  <p><%= @message.sender_name %></p>
-  <p><%= @message.from_email %></p>
+  <div id="message">
+    <h2><%= @message.subject %></h2>
 
-  <p><%= @message.sent_date_time %></p>
+    <p><%= @message.sender_name %> &lt;<%= @message.from_email %>&gt;</p>
 
-  <p><%= @message.body %></p>
+    <p>Sent at: <%= @message.sent_date_time %></p>
+
+    <% @message.body.split("\n").each do |paragraph| %>
+      <p><%= paragraph %></p>
+    <% end %>
+  </div>
 
 </div>

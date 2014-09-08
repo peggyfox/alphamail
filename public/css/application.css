@@ -15,8 +15,8 @@ nav {
 }
 
 nav .brand, nav .brand a {
-  margin-left: 25px;
-  font-size: 18pt;
+  /*margin-left: 25px;*/
+  font-size: 24pt;
   text-decoration: none;
   color: #666;
   width: 60%;
@@ -25,12 +25,12 @@ nav .brand, nav .brand a {
 
 nav ul {
   display: inline-block;
-  width: 30%;
+  width: 35%;
   text-align: right;
 }
 
 nav li {
-  margin-right: 25px;
+  /*margin-right: 25px;*/
   display: inline;
 }
 
@@ -62,12 +62,12 @@ nav li a:hover {
 }
 
 .messages_table {
-    width: 100%;
+  width: 100%;
 }
 
 
 .messages_table td {
-  padding: 5px;
+  padding: 10px;
 }
 
 .contact_photo {
@@ -87,7 +87,7 @@ nav li a:hover {
 #sidebar{
   top: 80px;
   display: inline-block;
-  width: 20%;
+  width: 200px;
   background-color: #222;
   height: 100%;
   position: fixed;
@@ -102,13 +102,12 @@ nav li a:hover {
 
 
 #messages_container{
-  margin-left: 20%;
+  padding-left: 200px;
   margin-top: 80px;
+  margin-right: 0px;
   display: inline-block;
-  width: 80%;
-  background-color: #DDD;
+  width: 100%;
   border-top: 2px solid white;
-
 }
 
 /*#message_header{
@@ -122,9 +121,9 @@ th{
   background-color: #222;
   color: #666;
 }
+
 td:first-child{
   padding-left: 30px;
-
 }
 
 tr{
@@ -141,6 +140,19 @@ tr{
 .messages_table .important_cell{
   width: 30%;
 }*/
+
+#message {
+  padding: 15px 30px;
+}
+
+#message h2 {
+  border-bottom: 2px solid #DDD;
+  padding: 10px;
+}
+
+#message p {
+  padding: 4px 10px;
+}
 
 
 
