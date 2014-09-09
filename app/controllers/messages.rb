@@ -1,5 +1,11 @@
 get '/messages' do
   if current_user
+    @error = nil
+    begin
+      current_user.fetch_messages
+    rescue MailError => error
+      @error = error.message.strip
+    end
     @messages = current_user.received_messages.order(sent_at: :desc)
     @contacts = current_user.contacts
     erb :layout_sidebar do

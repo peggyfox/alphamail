@@ -22,6 +22,11 @@ require 'erb'
 require 'bcrypt'
 
 require 'date'
+require 'net/http'
+require 'nokogiri'
+
+ANOTHER_TOKEN = "9fc2a0e83eb63adbb25d3d52f3b28dc6"
+TOKEN = "c9ba90e53425dac9a8f9bcf9ccbcf714"
 
 # Some helper constants for path-centric logic
 APP_ROOT = Pathname.new(File.expand_path('../../', __FILE__))

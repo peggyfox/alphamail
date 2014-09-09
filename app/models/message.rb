@@ -25,4 +25,16 @@ class Message < ActiveRecord::Base
     self.viewed_at != nil
   end
 
+  def self.hashes_to_objects(message_hashes, user)
+    message_hashes.map do |message_hash|
+      message = Message.new(to_email: user.email, receiver_id: user.id)
+      message.from_email = message_hash[:from]
+      message.subject = message_hash[:subject]
+      message.body = message_hash[:body]
+      message.sent_at = message_hash['updated-at'.to_sym]
+      message.dbc_id = message_hash[:id]
+      message
+    end
+  end
+
 end

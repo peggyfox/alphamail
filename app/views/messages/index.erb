@@ -16,3 +16,7 @@
     <% end %>
   </table>
 </div>
+
+<% if @error %>
+<script>alert("<%=@error%>");</script>
+<% end %>

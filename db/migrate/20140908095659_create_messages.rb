@@ -8,6 +8,8 @@ class CreateMessages < ActiveRecord::Migration
       t.text :body
       t.datetime :sent_at
       t.datetime :viewed_at
+      t.integer :dbc_id
+
 
       t.timestamps
     end

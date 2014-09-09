@@ -28,4 +28,18 @@ class User < ActiveRecord::Base
   end
 
 
+  def fetch_messages
+    mail = MailAPI.new(TOKEN, self.email)
+    max_prev_id = self.received_messages.length == 0 ? 0 : self.received_messages.all.order(dbc_id: :desc).first.dbc_id
+    messages = []
+    if mail.get_message_count(max_prev_id) > 0
+      message_hashes = mail.get_messages
+      messages = Message.hashes_to_objects(message_hashes, self)
+      messages.sort { |m_1, m_2| m_1.dbc_id <=> m_2.dbc_id }
+      messages.each do |message|
+        message.save if message.dbc_id > max_prev_id
+      end
+    end
+  end
+
 end
