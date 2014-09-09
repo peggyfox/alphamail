@@ -18,17 +18,32 @@ class MailAPI
     parse_messages(xml)
   end
 
-  def get_messages_test
-    response = $response
-    xml = parse_message_request(response)
-    parse_messages(xml)
-  end
+  # def get_messages_test
+  #   response = $response
+  #   xml = parse_message_request(response)
+  #   parse_messages(xml)
+  # end
 
   private
 
     def request_messages
       uri = URI("#{@@base_uri}/#{@email}/messages?api_token=#{@token}")
-      Net::HTTP.get(uri)
+      counter = 0
+      server_response = Net::HTTP.get_response(uri)
+      code = server_response.code.to_i
+      if code != 200
+        server_response = handle_error(code, uri)
+      end
+      server_response.body
+    end
+
+    def handle_error(code, uri)
+      if code > 499
+       server_response = Net::HTTP.get_response(uri)
+      else
+        raise "server error #{code}"
+      end
+      server_response
     end
 
     def parse_message_request(response)
@@ -48,5 +63,5 @@ class MailAPI
     end
 end
 
-# mail = MailAPI.new(TOKEN, "peggy@alphamail.com")
-# puts mail.get_messages
+mail = MailAPI.new(TOKEN, "peggy@alphamail.com")
+puts mail.get_messages
