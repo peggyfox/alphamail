@@ -7,25 +7,25 @@
 
 body{
   font-family: "Open Sans", sans-serif;
-  min-width: 600px;
 }
 
 a {
-  color: #DDD;
+  color: #BBB;
   text-decoration: none;
 }
 
 a:hover {
   color: #FFF;
-  border-bottom: 1px solid #FFF;
 }
 
 footer, .sidebar {
   padding: 10px;
+
 }
 
 header {
   background-color: #222;
+  position: fixed;
   padding: 0 1em;
   width: 100%;
   height: 100px;
@@ -45,6 +45,11 @@ footer {
   background: #888;
   color: #666;
   text-align: center;
+  position: fixed;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  height: 40px;
 }
 
 header h1 {
@@ -64,6 +69,10 @@ header li {
   padding: 10px;
 }
 
+main {
+  margin-bottom: 40px;
+}
+
 .main-wrapper {
   overflow: hidden;
   width: 100%;
@@ -74,14 +83,16 @@ header li {
   margin-right: 5px;
 }
 
-.sidebar, .content {
+/*.sidebar, .content {
   padding-bottom: 66666px;
   margin-bottom: -66666px;
-}
+}*/
 
 .sidebar {
   background-color: #333;
-  float: right;
+  position: fixed;
+  top: 100px;
+  bottom: 0px;
   width: 150px;
 }
 
@@ -91,14 +102,14 @@ header li {
 }
 
 .content-wrapper {
+  margin-top: 100px;
+  padding-left: 150px;
   float: right;
-  margin-left: -150px;
   width: 100%;
 }
 
 .content {
-  background-color: yellow;
-  margin-left: 150px;
+  background-color: white;
 }
 
 .light {
@@ -154,3 +165,46 @@ header li {
   color: #444;
   border-bottom: none;
 }
+
+#messages_container {
+  padding:30px;
+}
+
+#messages_container h2 {
+  padding: 10px;
+  border-bottom: 1px solid black;
+}
+
+#messages_container p {
+  padding: 10px;
+}
+#sign-in, #sign-up{
+  width: 300px;
+  padding-top: 50px;
+  margin: auto;
+}
+#sign-in input, #sign-up input{
+  padding: 4px;
+  margin: 3px;
+  width: 100%;
+}
+
+.contact_info{
+  padding: 15px;
+
+}
+
+@media (max-width: 641px) {
+  .sidebar {float: clear; width: 100%; text-align: center; position: fixed; top: 100px; height: 60px;}
+  .content-wrapper {float: clear; margin-left: 0px; margin-top: 160px; padding-left: 0px}
+  .content {margin-left: 0px}
+  .nav-text {display: none;}
+  .sidebar li {display: inline;}
+  .sidebar ul{padding: 10px; }
+  h1{font-size: 1.3em}
+
+}
+
+
+
+

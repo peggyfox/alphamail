@@ -6,6 +6,7 @@
     differences in how form elements appear between Firefox and IE
     See: http://necolas.github.com/normalize.css/
   -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
   <link rel="stylesheet" href="/css/normalize.css">
   <link rel="stylesheet" href="/css/application.css">
   <link rel="stylesheet" href="/css/font-awesome.min.css" >
@@ -25,10 +26,10 @@
       <nav>
         <ul>
           <% if @user and @user.id %>
-          <li><a href="/sessions/<%= @user.id %>"><i class="fa fa-sign-out"></i> Sign Out</a></li>
+          <li><a href="/sessions/<%= @user.id %>"><i class="fa fa-sign-out"></i> <span class="nav-text">Sign Out</nav></a></li>
           <% else %>
-          <li><a href="/users/new"><i class="fa fa-male"></i> Sign Up</a></li>
-          <li><a href="/sessions/new"><i class="fa fa-sign-in"></i> Sign In</a></li>
+          <li><a href="/users/new"><i class="fa fa-male"></i><span class="nav-text"> Sign Up</a></span></li>
+          <li><a href="/sessions/new"><i class="fa fa-sign-in"></i><span class="nav-text"> Sign In</span></a></li>
           <% end %>
         </ul>
       </nav>
@@ -39,7 +40,9 @@
   <div class="main-wrapper">
 
     <%= yield %>
-    
+
+  </div>
+
   </main>
 
   <footer> <i class="fa fa-copyright"></i> AlphaMail Industries </footer>
