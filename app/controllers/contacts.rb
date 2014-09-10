@@ -1,7 +1,9 @@
 get '/contacts' do
   if current_user
     @contacts = current_user.contacts
-    erb :"contacts/index"
+    erb :layout_sidebar do
+      erb :"contacts/index"
+    end
   else
     redirect '/sessions/new'
   end
@@ -10,7 +12,9 @@ end
 get '/contacts/new' do
   if current_user
     @contact = Contact.new
-    erb :"contacts/new"
+    erb :layout_sidebar do
+      erb :"contacts/new"
+    end
   else
     redirect "/sessions/new"
   end
@@ -28,7 +32,9 @@ end
 get '/contacts/:contact_id' do
   @contact = Contact.find(params[:contact_id])
   if current_user == @contact.user
-    erb :"contacts/show"
+    erb :layout_sidebar do
+      erb :"contacts/show"
+    end
   else
     redirect "/sessions/new"
   end
@@ -37,7 +43,9 @@ end
 get '/contacts/:contact_id/edit' do
   @contact = Contact.find(params[:contact_id])
   if current_user == @contact.user
-    erb :"contacts/edit"
+    erb :layout_sidebar do
+      erb :"contacts/edit"
+    end
   else
     redirect "/sessions/new"
   end

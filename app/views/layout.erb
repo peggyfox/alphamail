@@ -24,8 +24,12 @@
       </h1>
       <nav>
         <ul>
-          <li><a href="/sessions/sign-in"><i class="fa fa-sign-in"></i> Sign In</a></li>
-          <li><a href="/sessions/sign-out"><i class="fa fa-sign-out"></i> Sign Out</a></li>
+          <% if @user and @user.id %>
+          <li><a href="/sessions/<%= @user.id %>"><i class="fa fa-sign-out"></i> Sign Out</a></li>
+          <% else %>
+          <li><a href="/users/new"><i class="fa fa-male"></i> Sign Up</a></li>
+          <li><a href="/sessions/new"><i class="fa fa-sign-in"></i> Sign In</a></li>
+          <% end %>
         </ul>
       </nav>
   </header>

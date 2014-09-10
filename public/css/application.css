@@ -120,14 +120,20 @@ header li {
   text-align: left;
 }
 
-.unread {
+.content tr:hover td {
+  background-color: #FFA;
+  font-weight: 600;
+}
+
+.content tr {
   background-color: #F5F5F5;
   font-weight: 600;
 }
 
-.read {
+.content tr.read {
   background-color: #E3E3E3;
   color: #999;
+  font-weight: 100;
 }
 
 .content th {
@@ -147,9 +153,4 @@ header li {
 .content th a:hover {
   color: #444;
   border-bottom: none;
-}
-
-.content tr:hover td {
-  background-color: #FFA;
-  font-weight: 600;
 }
