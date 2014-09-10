@@ -8,17 +8,30 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <link rel="stylesheet" href="vendor/css/normalize.min.css">
-        <!-- <link rel="stylesheet" href="css/emulation.css"> -->
 
         <script src="vendor/js/modernizr-2.6.2.min.js"></script>
         <script src="vendor/js/jquery-2.1.1.min.js"></script>
         <script src="vendor/js/underscore-min.js"></script>
+
+        <script src="app/models/message.js"></script>
+        <script src="app/views/message_row_view.js"></script>
+        <script src="app/app.js"></script>
     </head>
     <body>
 
-      <div id="content" class="simulate-mobile">
-        This is our sweet app.
+      <div id="content">
+        <table id="messages-table">
+        </table>
       </div>
+
+      <script type="text/template" id="message-row-template">
+        <tr>
+            <td> <%= from_email %> </td>
+            <td> <%= subject %> </td>
+            <td> <%= short_body %> </td>
+            <td> <%= sent_at %> </td>
+        </tr>
+      </script>
 
     </body>
 </html>

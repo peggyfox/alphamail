@@ -24,6 +24,7 @@ require 'bcrypt'
 require 'date'
 require 'net/http'
 require 'nokogiri'
+require 'json'
 
 ANOTHER_TOKEN = "9fc2a0e83eb63adbb25d3d52f3b28dc6"
 TOKEN = "c9ba90e53425dac9a8f9bcf9ccbcf714"

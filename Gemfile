@@ -16,6 +16,7 @@ gem 'rake'
 gem 'shotgun'
 gem 'bcrypt'
 # gem 'chronic'
+gem 'json'
 
 group :test do
   gem 'shoulda-matchers'

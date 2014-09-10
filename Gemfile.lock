@@ -83,6 +83,7 @@ DEPENDENCIES
   capybara
   factory_girl
   ffaker
+  json
   pg
   rack-test
   rake

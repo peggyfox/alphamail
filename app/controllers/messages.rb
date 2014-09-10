@@ -8,8 +8,13 @@ get '/messages' do
     end
     @messages = current_user.received_messages.order(sent_at: :desc)
     @contacts = current_user.contacts
-    erb :layout_sidebar do
-      erb :"messages/index"
+    if request.xhr?
+      content_type :json
+      return @messages.to_json
+    else
+      erb :layout_sidebar do
+        erb :"messages/index"
+      end
     end
   else
     redirect '/sessions/new'
