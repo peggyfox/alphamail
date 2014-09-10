@@ -1,0 +1,136 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body{
+  font-family: "Open Sans", sans-serif;
+  min-width: 600px;
+}
+
+a {
+  color: #DDD;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #FFF;
+  border-bottom: 1px solid #FFF;
+}
+
+footer, .content, .sidebar {
+  padding: 10px;
+}
+
+header {
+  background-color: #222;
+  color: #AAA;
+  padding: 0 20px;
+  width: 100%;
+  height: 100px;
+  /*line-height: 80px;*/
+}
+
+header nav {
+  line-height: 100px;
+}
+
+header h1 a:hover {
+  border-bottom: none
+}
+
+footer {
+  clear: both;
+  background: #888;
+  color: #666;
+  text-align: center;
+}
+
+header h1 {
+  float: left;
+}
+
+header nav {
+  float: right;
+}
+
+header ul {
+  list-style: none;
+}
+
+header li {
+  display: inline;
+  padding: 10px;
+}
+
+.main-wrapper {
+  overflow: hidden;
+  width: 100%;
+  min-height: 400px;
+}
+
+.fa {
+  margin-right: 5px;
+}
+
+.light {
+  color: #DDD;
+}
+
+.sidebar, .content {
+  padding-bottom: 66666px;
+  margin-bottom: -66660px;
+}
+
+.sidebar {
+  background-color: #333;
+  float: right;
+  width: 150px;
+}
+
+.sidebar li {
+  padding: 5px 10px;
+  display: block;
+}
+
+.content-wrapper {
+  float: right;
+  margin-left: -150px;
+  width: 100%;
+}
+
+.content {
+  background-color: yellow;
+  margin-left: 150px;
+}
+
+.content table {
+  border-collapse: collapse;
+  padding: 5px;
+  width: 100%;
+}
+
+.content th {
+  text-align: left;
+  background-color: #FFF;
+  color: #BBB;
+  font-weight: 100;
+  text-align: justify;
+  padding: 5px 10px;
+}
+
+.content th a:hover {
+  color: #444;
+}
+
+.content td {
+  background-color: #F5F5F5;
+  border: 2px solid #FFF;
+  padding: 10px;
+}
+
+.content tr:hover td {
+  background-color: #FFA;
+  font-weight: 600;
+}

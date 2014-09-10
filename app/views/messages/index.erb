@@ -1,22 +1,21 @@
-<div id="messages_container">
-  <table class="messages_table">
-      <tr id="message_header">
-        <th>From</th>
-        <th>Subject</th>
-        <th>Body</th>
-        <th>Sent</th>
-      </tr>
-    <% @messages.each do |message| %>
-      <tr class="<%= message.viewed? ? 'read' : 'unread'  %>" onclick="document.location='/messages/<%=message.id %>';">
-        <td><%= message.from_email[0..25] %></td>
-        <td><%= message.subject[0..40] %></td>
-        <td><%= message.body[0..75] %></td>
-        <td><%= message.sent_date_time %></td>
-      </tr>
-    <% end %>
-  </table>
-</div>
-
 <% if @error %>
 <script>alert("<%=@error%>");</script>
-<% end %>
+<% end %> 
+
+<table>
+  <tr>
+    <th><a href="#">From <i class="fa fa-sort"></i></a></th>
+    <th><a href="#">Subject <i class="fa fa-sort"></i></a></th>
+    <th><a href="#">Body <i class="fa fa-sort"></i></a></th>
+    <th><a href="#">Received <i class="fa fa-sort"></i></a></th>
+  </tr>
+
+  <% @messages.each do |message| %>
+    <tr class="<%= message.viewed? ? 'read' : 'unread'  %>" onclick="document.location='/messages/<%=message.id %>';">
+      <td><%= message.from_email[0..25] %></td>
+      <td><%= message.subject[0..40] %></td>
+      <td><%= message.body[0..75] %></td>
+      <td><%= message.sent_date_time %></td>
+    </tr>
+  <% end %>
+</table>
