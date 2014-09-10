@@ -1,10 +1,21 @@
-<div id="content">
-<div id="sidebar">
-  <h2>Navigation</h2>
-  <ul>
-    <li></li>
-  </ul>
+<div class="content-wrapper">
+  <div class="content">
 
+    <%= yield %>
 
+    </div>
+  </div>
 
-</div><%= yield %></div>
+  <div class="sidebar">
+    <nav>
+      <ul>
+        <li><a href="/"><i class="fa fa-inbox"></i> Inbox</a></li>
+        <li><a href="#"><i class="fa fa-send"></i> Sent</a></li>
+        <li><a href="#"><i class="fa fa-edit"></i> Drafts</a></li>
+        <li><a href="#"><i class="fa fa-trash"></i> Trash</a></li>
+        <li><a href="/contacts"><i class="fa fa-user"></i> Contacts</a></li>
+      </ul>
+    </nav>
+  </div>
+
+</div>
