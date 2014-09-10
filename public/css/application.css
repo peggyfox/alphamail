@@ -1,160 +1,155 @@
 * {
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  cursor: url("finger.cur"), crosshair;
 }
 
-nav {
-/*  border-bottom: solid #666 2px;
-*/  padding: 20px;
-  width: 100%;
-  height: 80px;
-  font-weight: bold;
-  position:fixed;
-  background-color: #111;
+body{
+  font-family: "Open Sans", sans-serif;
+  min-width: 600px;
 }
 
-nav .brand, nav .brand a {
-  /*margin-left: 25px;*/
-  font-size: 24pt;
-  text-decoration: none;
-  color: #666;
-  width: 60%;
-  display: inline-block;
-}
-
-nav ul {
-  display: inline-block;
-  width: 35%;
-  text-align: right;
-}
-
-nav li {
-  /*margin-right: 25px;*/
-  display: inline;
-}
-
-nav li a {
-  color: gray;
+a {
+  color: #DDD;
   text-decoration: none;
 }
 
-nav li a:hover {
-  text-decoration: underline;
+a:hover {
+  color: #FFF;
+  border-bottom: 1px solid #FFF;
 }
 
-.read {
-  background-color: #DDD;
-  font-weight: 100;
-}
-
-.unread {
-  background-color: #EEE;
-  font-weight: 600;
-}
-.unread:hover{
-  background-color: #FFC;
-  color: black;
-}
-.read:hover{
-  background-color: #DDB;
-  color: black;
-}
-
-.messages_table {
-  width: 100%;
-}
-
-
-.messages_table td {
+footer, .sidebar {
   padding: 10px;
 }
 
-.contact_photo {
-  float: left;
-}
-
-.contact_photo img {
-  width: 200px;
-}
-
-.contact_info {
-  float: left;
-  padding: 20px;
-}
-
-
-#sidebar{
-  top: 80px;
-  display: inline-block;
-  width: 200px;
+header {
   background-color: #222;
-  height: 100%;
-  position: fixed;
-  color: #666;
-  border-right: 2px solid white;
-  border-top: 2px solid white;
-  padding: 18px;
+  padding: 0 1em;
+  width: 100%;
+  height: 100px;
+  line-height: 95px;
 }
-#sidebar ul{
+
+header h1 {
+  margin: 0;
+}
+
+header h1 a:hover {
+  border-bottom: none
+}
+
+footer {
+  clear: both;
+  background: #888;
+  color: #666;
+  text-align: center;
+}
+
+header h1 {
+  float: left;
+}
+
+header nav {
+  float: right;
+}
+
+header ul {
   list-style: none;
 }
 
-
-#messages_container{
-  padding-left: 200px;
-  margin-top: 80px;
-  margin-right: 0px;
-  display: inline-block;
-  width: 100%;
-  border-top: 2px solid white;
-}
-
-/*#message_header{
-  position: fixed;
-
-}
-*/
-
-th{
-  padding: 20px;
-  background-color: #222;
-  color: #666;
-}
-
-td:first-child{
-  padding-left: 30px;
-}
-
-tr{
-  border-bottom: white solid 2px;
-}
-
-/*table{
-  table-layout: fixed;
-}*/
-/*.messages_table th, .messages_table td{
-  width: 20%;
-}
-
-.messages_table .important_cell{
-  width: 30%;
-}*/
-
-#message {
-  padding: 15px 30px;
-}
-
-#message h2 {
-  border-bottom: 2px solid #DDD;
+header li {
+  display: inline;
   padding: 10px;
 }
 
-#message p {
-  padding: 4px 10px;
+.main-wrapper {
+  overflow: hidden;
+  width: 100%;
+  min-height: 400px;
+}
+
+.fa {
+  margin-right: 5px;
+}
+
+.sidebar, .content {
+  padding-bottom: 66666px;
+  margin-bottom: -66666px;
+}
+
+.sidebar {
+  background-color: #333;
+  float: right;
+  width: 150px;
+}
+
+.sidebar li {
+  padding: 5px 10px;
+  display: block;
+}
+
+.content-wrapper {
+  float: right;
+  margin-left: -150px;
+  width: 100%;
+}
+
+.content {
+  background-color: yellow;
+  margin-left: 150px;
+}
+
+.light {
+  font-size: 0.75em;
+  font-weight: 100;
 }
 
 
+/* Messages Styles */
 
+.content table {
+  border-collapse: collapse;
+  width: 100%;
+}
 
+.content tr {
+  border-bottom: 1px solid #E3E3E3;
+  font-size: 0.75em;
+  text-align: left;
+}
 
+.unread {
+  background-color: #F5F5F5;
+  font-weight: 600;
+}
+
+.read {
+  background-color: #E3E3E3;
+  color: #999;
+}
+
+.content th {
+  background-color: #CCC;
+  font-weight: 100;
+  padding: 0.75em 1.5em;
+}
+
+.content td {
+  padding: 1em 1.5em;
+}
+
+.content th a {
+  color: #888;
+}
+
+.content th a:hover {
+  color: #444;
+  border-bottom: none;
+}
+
+.content tr:hover td {
+  background-color: #FFA;
+  font-weight: 600;
+}
