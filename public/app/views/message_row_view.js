@@ -14,7 +14,7 @@ MessageRowView.prototype.templateData = function() {
     subject: this.message.subject,
     short_body: this.shortenBody(this.message.body),
     sent_at: this.displaySentAt(this.message.sent_at),
-    read: this.message.sent_at ? "read" : "unread"
+    read: this.message.viewed_at ? "read" : "unread"
   };
 }
 

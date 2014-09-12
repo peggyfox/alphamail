@@ -6,7 +6,7 @@ get '/messages' do
     rescue MailError => error
       @error = error.message.strip
     end
-    @messages = current_user.received_messages.order(sent_at: :desc)
+    @messages = current_user.received_messages.order(sent_at: :desc, subject: :desc)
     @contacts = current_user.contacts
     if request.xhr?
       content_type :json
@@ -25,8 +25,13 @@ get '/messages/:message_id' do
   @message = Message.find(params[:message_id])
   if current_user == @message.receiver
     @message.update(viewed_at: DateTime.now)
-    erb :layout_sidebar do
-      erb :"messages/show"
+    if request.xhr?
+      content_type :json
+      return @message.to_json
+    else
+      erb :layout_sidebar do
+        erb :"messages/show"
+      end
     end
   else
     redirect '/sessions/new', layout: :non_user_layout

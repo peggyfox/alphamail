@@ -10,6 +10,5 @@ MessageTableView.prototype.render = function(){
     var rowHtml = rowView.render();
     $element.find("tbody").append(rowHtml);
   }.bind(this));
-  debugger
   return $element;
 }

@@ -9,6 +9,12 @@ get '/' do
 end
 
 #----------- SESSIONS -----------
+get '/sessions' do
+  content_type :json
+  return session[:user_id].to_json
+end
+
+
 
 get '/sessions/new' do
   # render sign-in page
@@ -23,7 +29,7 @@ post '/sessions' do
   if user
     # successfully authenticated; set up session and redirect
     session[:user_id] = user.id
-    redirect "/messages"
+    redirect "/"
   else
     # an error occurred, re-render the sign-in form, displaying an error
     @error = "Invalid email or password."
@@ -31,13 +37,18 @@ post '/sessions' do
   end
 end
 
-get '/sessions/:id' do
-  # sign-out -- invoked via AJAX
-  return 401 unless params[:id].to_i == session[:user_id].to_i
-  session.clear
-  200
+get '/sessions/delete' do
+  session[:user_id] = nil
   redirect '/'
 end
+
+# get '/sessions/:id' do
+#   # sign-out -- invoked via AJAX
+#   return 401 unless params[:id].to_i == session[:user_id].to_i
+#   session.clear
+#   200
+#   redirect '/'
+# end
 
 
 #----------- USERS -----------

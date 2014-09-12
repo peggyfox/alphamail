@@ -1,50 +1,127 @@
 <!DOCTYPE html>
 <html class="no-js">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title></title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title></title>
+  <meta name="description" content="">
 
-        <link rel="stylesheet" href="vendor/css/normalize.min.css">
 
-        <script src="vendor/js/modernizr-2.6.2.min.js"></script>
-        <script src="vendor/js/jquery-2.1.1.min.js"></script>
-        <script src="vendor/js/underscore-min.js"></script>
+  <script src="vendor/js/modernizr-2.6.2.min.js"></script>
+  <script src="vendor/js/jquery-2.1.1.min.js"></script>
+  <script src="vendor/js/underscore-min.js"></script>
 
-        <script src="app/models/message.js"></script>
-        <script src="app/views/message_row_view.js"></script>
-        <script src="app/views/message_table_view.js"></script>
-        <script src="app/app.js"></script>
-    </head>
-    <body>
+  <script src="app/models/message.js"></script>
+  <script src="app/views/message_row_view.js"></script>
+  <script src="app/views/message_detail_view.js"></script>
+  <script src="app/views/message_table_view.js"></script>
+  <script src="app/views/session_form_view.js"></script>
+  <script src="app/app.js"></script>
 
-      <div id="content">
-        <table id="messages-table">
-        </table>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <link rel="stylesheet" href="/css/normalize.css">
+  <link rel="stylesheet" href="/css/application.css">
+  <link rel="stylesheet" href="/css/font-awesome.min.css" >
+  <link rel="stylesheet" href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' type='text/css'>
+
+</head>
+<body>
+
+  <header>
+    <h1>
+      <a href="/"><i class="fa fa-male"></i> ALPHAMAIL <span class="light">(BETA)<span></a>
+    </h1>
+    <nav id="top-nav">
+      <ul>
+        <li><a href="/sessions/delete"><i class="fa fa-sign-out"></i> <span class="nav-text">Sign Out</nav></a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="content-wrapper">
+    <div class="content">
+      <div class="main-wrapper">
+        <div id="content">
+          <table id="messages-table">
+          </table>
+        </div>
       </div>
+    </div>
+  </div>
 
-      <script type="text/template" id="message-row-template">
-        <tr class="<%= read %>" onclick="document.location='/messages/<%= id %>';">
-          <td><%= from_email %></td>
-          <td><%= subject %></td>
-          <td><%= short_body %></td>
-          <td><%= sent_at %></td>
-        </tr>
-      </script>
-
-      <script type="text/template" id="message-table-template">
-        <table>
-          <tr>
-            <th><a href="#">From <i class="fa fa-sort"></i></a></th>
-            <th><a href="#">Subject <i class="fa fa-sort"></i></a></th>
-            <th><a href="#">Body <i class="fa fa-sort"></i></a></th>
-            <th><a href="#">Sent <i class="fa fa-sort"></i></a></th>
-          </tr>
-        </table>
-      </script>
+  <div class="sidebar">
+    <nav>
+      <ul>
+        <li><a id="inbox" href="#"><i class="fa fa-inbox"></i> <span class="nav-text">Inbox</span></a></li>
+        <li><a href="#"><i class="fa fa-send"></i> <span class="nav-text">Sent</span></a></li>
+        <li><a href="#"><i class="fa fa-edit"></i> <span class="nav-text">Drafts</span></a></li>
+        <li><a href="#"><i class="fa fa-trash"></i> <span class="nav-text">Trash</span></a></li>
+        <li><a id="contacts" href="/contacts"><i class="fa fa-user"></i> <span class="nav-text">Contacts</span></a></li>
+      </ul>
+    </nav>
+  </div>
 
 
-    </body>
+
+  <script type="text/template" id="message-row-template">
+    <tr class="<%= read %>" onclick="App.singleMessage(<%= id %>);">
+    <td><%= from_email %></td>
+    <td><%= subject %></td>
+    <td><%= short_body %></td>
+    <td><%= sent_at %></td>
+    </tr>
+  </script>
+
+  <script type="text/template" id="message-table-template">
+    <table>
+    <tr>
+    <th><a href="#">From <i class="fa fa-sort"></i></a></th>
+    <th><a href="#">Subject <i class="fa fa-sort"></i></a></th>
+    <th><a href="#">Body <i class="fa fa-sort"></i></a></th>
+    <th><a href="#">Sent <i class="fa fa-sort"></i></a></th>
+    </tr>
+    </table>
+  </script>
+
+  <script type="text/template" id="message-detail-template">
+    <div id="messages_container">
+    <div id="message">
+    <h2><%= subject %></h2>
+    <p> &lt;<%= from_email %>&gt;</p>
+    <p>Sent at: <%= sent_at %></p>
+    <p><%= body %></p>
+    </div>
+    </div>
+  </script>
+
+  <script type="text/template" id="session-template">
+    <form id="sign-in" method="post" action="/sessions">
+      <h1>Sign In</h1>
+      <label class="label" for="email">Email</label>
+      <input type="email" name="email" placeholder="e.g., me@example.com"><br>
+      <label class="label" for="password">Password</label>
+      <input type="password" name="password" placeholder="6 or more characters">
+      <br>
+      <div class="submit"><input type="submit" value="Sign In"></div>
+    </form>
+
+    <form id="sign-up" method="post" action="/users">
+      <h1>Sign Up</h1>
+      <label class="label" for="name">Name</label>
+      <input type="text" name="user[name]" placeholder="e.g., joe">
+      <br>
+      <label class="label" for="email">Email</label>
+      <input type="email" name="user[email]" placeholder="e.g., me@example.com" >
+      <br>
+      <label class="label" for="password">Password</label>
+      <input type="password" name="user[password]" placeholder="6 or more characters">
+      <br>
+      <div class="submit"><input type="submit" value="Sign Up"></div>
+    </form>
+  </script>
+
+
+
+
+</body>
 </html>
