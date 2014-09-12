@@ -2,7 +2,6 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  cursor: url("finger.cur"), crosshair;
 }
 
 body{
@@ -16,6 +15,7 @@ a {
 
 a:hover {
   color: #FFF;
+  cursor: url("finger.cur"), finger;
 }
 
 footer, .sidebar {
@@ -37,7 +37,8 @@ header h1 {
 }
 
 header h1 a:hover {
-  border-bottom: none
+  border-bottom: none;
+  cursor: url("finger.cur"), finger;
 }
 
 footer {
@@ -133,7 +134,7 @@ main {
 
 .content tr:hover td {
   background-color: #FFA;
-  font-weight: 600;
+  cursor: url("finger.cur"), finger;
 }
 
 .content tr {
@@ -164,6 +165,7 @@ main {
 .content th a:hover {
   color: #444;
   border-bottom: none;
+  cursor: url("finger.cur"), finger;
 }
 
 #messages_container {
@@ -178,11 +180,13 @@ main {
 #messages_container p {
   padding: 10px;
 }
+
 #sign-in, #sign-up{
   width: 300px;
   padding-top: 50px;
   margin: auto;
 }
+
 #sign-in input, #sign-up input{
   padding: 4px;
   margin: 3px;
@@ -191,7 +195,6 @@ main {
 
 .contact_info{
   padding: 15px;
-
 }
 
 @media (max-width: 641px) {
