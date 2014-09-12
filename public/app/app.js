@@ -10,12 +10,9 @@ var App = {
 
   allMessages: function() {
     Message.all().done(function(messages){
-      messages.forEach(function(message){
-        var rowView = new MessageRowView(message);
-        var rowHtml = rowView.render();
-        // this.displayHtml(rowHtml);
-        $("#messages-table").append(rowHtml);
-      }.bind(this));
+      var tableView = new MessageTableView(messages);
+      var tableHtml = tableView.render();
+      this.displayHtml(tableHtml);
     }.bind(this));
   },
 

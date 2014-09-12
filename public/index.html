@@ -15,6 +15,7 @@
 
         <script src="app/models/message.js"></script>
         <script src="app/views/message_row_view.js"></script>
+        <script src="app/views/message_table_view.js"></script>
         <script src="app/app.js"></script>
     </head>
     <body>
@@ -25,13 +26,25 @@
       </div>
 
       <script type="text/template" id="message-row-template">
-        <tr>
-            <td> <%= from_email %> </td>
-            <td> <%= subject %> </td>
-            <td> <%= short_body %> </td>
-            <td> <%= sent_at %> </td>
+        <tr class="<%= read %>" onclick="document.location='/messages/<%= id %>';">
+          <td><%= from_email %></td>
+          <td><%= subject %></td>
+          <td><%= short_body %></td>
+          <td><%= sent_at %></td>
         </tr>
       </script>
+
+      <script type="text/template" id="message-table-template">
+        <table>
+          <tr>
+            <th><a href="#">From <i class="fa fa-sort"></i></a></th>
+            <th><a href="#">Subject <i class="fa fa-sort"></i></a></th>
+            <th><a href="#">Body <i class="fa fa-sort"></i></a></th>
+            <th><a href="#">Sent <i class="fa fa-sort"></i></a></th>
+          </tr>
+        </table>
+      </script>
+
 
     </body>
 </html>
